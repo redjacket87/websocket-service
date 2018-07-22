@@ -1,0 +1,47 @@
+{
+  "name": "websocket-service",
+  "version": "1.0.0",
+  "description": "simple websocket service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "node server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "postcss-flexbugs-fixes": "^4.0.0",
+    "postcss-modules-values": "^1.3.0",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.3",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "serve-static": "^1.13.2",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
+    "style-loader": "^0.21.0",
+    "styled-components": "^3.3.3",
+    "uws": "^10.148.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "postcss-loader": "^2.1.6",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
