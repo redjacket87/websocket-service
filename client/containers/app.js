@@ -31,13 +31,14 @@ class App extends React.Component {
 	render() {
 		const {availableEvents, subscribeEvent, unSubscribeEvent} = this.props;
 		return availableEvents
-		? availableEvents.map(({eventName, active, value}) => {
+		? availableEvents.map(({eventName, active, value, error}) => {
 			return <EventPlate
 				eventName={eventName}
 				active={active}
 				subscribeEvent={subscribeEvent}
 				unSubscribeEvent={unSubscribeEvent}
 				value={value}
+				error={error}
 			/>
 		})
 		: null;

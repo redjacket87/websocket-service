@@ -64,6 +64,14 @@ class EventPlate extends React.Component {
 					>
 						{this.props.value ? this.props.value : ''}
 					</Paragraph>
+					<Paragraph
+						color='#31708f'
+						size='20'
+						verticalAlign='middle'
+						display='inline-block'
+					>
+						{this.props.error ? 'Ждем подключения к серверу...' : ''}
+					</Paragraph>
 				</Panel.Body>
 			</Panel>
 		)

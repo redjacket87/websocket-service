@@ -1,4 +1,4 @@
-import {GET_AVAILABLE_EVENTS, SET_ACTIVE_MODE, UPDATE_VALUE} from '../types/app';
+import {GET_AVAILABLE_EVENTS, SET_ACTIVE_MODE, UPDATE_VALUE, SET_ERROR} from '../types/app';
 
 const initialState = {
 	availableEvents: []
@@ -23,6 +23,8 @@ export default function loginPageReducer (state = initialState,action) {
 			return updateStoreItem(state, action, 'active', action.active);
 		case UPDATE_VALUE:
 			return updateStoreItem(state, action, 'value', action.payload.value);
+		case SET_ERROR:
+			return updateStoreItem(state, action, 'error', action.payload.error);
 		default:
 			return state;
 	}

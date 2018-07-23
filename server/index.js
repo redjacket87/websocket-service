@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const {port, cookieName, events, getUrls} = require('../app-config');
+const {port, cookieName, events, getUrls, serverCrushDelay} = require('../app-config');
 const {
 	loginUrl,
 	appRoot,
@@ -14,7 +14,8 @@ const utils = require('../utils');
 
 const app = express();
 const http = require('http').Server(app);
-const io   = require('socket.io')(http);
+const Server = require('socket.io');
+let io = Server(http);
 
 // подключаем мидлвары для раздачи статики и парсинга запроса
 app.use(appRoot, express.static(path.resolve(__dirname, '../public/dist')));
@@ -65,16 +66,20 @@ io.on('connection', (socket) => {
 	socket.on('check-connection', () => {
 		socket.emit('checked');
 		console.log('соединение установлено');
+		const self = {};
 		events.forEach((event) => {
 			socket.on(event, (interval) => {
-				const timer = setInterval(() => {
+				self[event] = setInterval(() => {
 					console.log('setInterval');
 					socket.emit(event, {payload: (Math.random()*100).toFixed(2)});
 				}, interval);
-				socket.on('clear-interval', () => {
-					clearInterval(timer);
-				})
 			});
+			socket.on('clear-interval', ({eventName}) => {
+				if (eventName !== event) {
+					return;
+				}
+				clearInterval(self[eventName]);
+			})
 		});
 	});
 });
