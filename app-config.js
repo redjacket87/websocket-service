@@ -16,7 +16,7 @@ module.exports = {
 			subscribeEvent: '/subscribe-event'
 		}
 	},
-	login: 'b2broker',
+	login: 'login',
 	password: 'qwerty',
 	cookieName: 'app_lgn'
 };
